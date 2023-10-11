@@ -1,0 +1,9 @@
+package com.example.spring230920.controller.Board;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("mainView")
+public class View {
+}

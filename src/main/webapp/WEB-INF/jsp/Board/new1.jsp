@@ -24,8 +24,11 @@
         <input type="text" name="title">
     </div>
     <div>
-        내용
-        <textarea name="content" cols="300" rows="100"></textarea>
+        <p>내용</p>
+        <textarea name="content" cols="100" rows="25"></textarea>
+    </div>
+    <div>
+        <button>글 쓰기</button>
     </div>
 </form>
 </body>

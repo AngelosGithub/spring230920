@@ -15,10 +15,10 @@
 <h2>글 보기</h2>
 <div>
     제목
-    <input type="text">
+    <input type="text" readonly>
 </div>
 <div>
-    <textarea name="" id="" cols="300" rows="100"></textarea>
+    <textarea name="" id="" cols="100" rows="25" readonly></textarea>
 </div>
 </body>
 </html>

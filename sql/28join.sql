@@ -73,3 +73,64 @@ SELECT LastName, FirstName
 FROM employees JOIN orders
     ON employees.EmployeeID = orders.EmployeeID
 WHERE OrderDate = '1996-07-04';
+
+-- 3개 테이블 조회
+SELECT COUNT(*)
+FROM products,
+     suppliers,
+     categories;
+
+SELECT p.ProductName, s.SupplierName, s.Phone, c.CategoryName
+FROM products p
+         JOIN suppliers s
+              ON p.SupplierID = s.SupplierID
+         JOIN categories c
+              ON p.CategoryID = c.CategoryID
+WHERE p.ProductName = 'chais';
+DESC products;
+-- 예) chang 상품의 공급자, 카테고리명 조회
+SELECT s.SupplierName, c.CategoryName, p.ProductName
+FROM products p
+    JOIN suppliers s
+        ON p.SupplierID = s.SupplierID
+    JOIN categories c
+        ON p.CategoryID = c.CategoryID
+WHERE p.ProductName = 'chang';
+-- 예) 1996년 7월 9일에 주문한 고객명, 처리한 직원명
+SELECT c.CustomerName, e.FirstName, e.LastName
+FROM orders o
+    JOIN employees e
+        ON o.EmployeeID = e.EmployeeID
+    JOIN customers c
+        ON c.CustomerID = o.CustomerID
+WHERE o.OrderDate = '1996-07-09';
+DESC customers;
+DESC employees;
+DESC orders;
+-- 예) 1996년 7월 9일에 주문한 상품명
+DESC orders;
+DESC products;
+DESC orderdetails;
+SELECT p.productName
+FROM orderdetails od
+    JOIN orders o
+        ON od.OrderID = o.OrderID
+    JOIN products p
+        ON od.ProductID = p.ProductID
+WHERE o.OrderDate = '1996-07-09';
+
+-- 예 'chang' 상품이 주문된 날짜들
+SELECT p.ProductName,
+       o.OrderDate,
+       c.CustomerName,
+       CONCAT(e.FirstName, ' ', e.LastName) FullName
+FROM products p
+         JOIN orderdetails od
+              ON p.ProductID = od.ProductID
+         JOIN orders o
+              ON od.OrderID = o.OrderID
+         JOIN customers c
+              ON o.CustomerID = c.CustomerID
+         JOIN employees e
+              ON o.EmployeeID = e.EmployeeID
+WHERE ProductName = 'Chang';

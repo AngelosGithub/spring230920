@@ -29,20 +29,18 @@ public class New {
     @PostMapping("new1")
     public String new2(BoardNew boardNew, RedirectAttributes rttr) throws SQLException {
         String new1 = """
-                INSERT INTO mydb1.boardNew
-                (Number, Name, Title, Content, HitCount, Created)
-                VALUE (?,?,?,?,?,?)
+                INSERT INTO mydb1.board
+                (Name, Title, Content, Created)
+                VALUE (?,?,?,?)
                 """;
         Connection connection = dataSource.getConnection();
         PreparedStatement statement = connection.prepareStatement(new1);
 
         try (connection; statement) {
-            statement.setInt(1, boardNew.getNumber());
-            statement.setString(2, boardNew.getName());
-            statement.setString(3, boardNew.getTitle());
-            statement.setString(4, boardNew.getContent());
-            statement.setInt(5, boardNew.getHitCount());
-            statement.setTimestamp(6, Timestamp.valueOf(LocalDateTime.now()));
+            statement.setString(1, boardNew.getName());
+            statement.setString(2, boardNew.getTitle());
+            statement.setString(3, boardNew.getContent());
+            statement.setTimestamp(4, Timestamp.valueOf(LocalDateTime.now()));
 
             int count = statement.executeUpdate();
 

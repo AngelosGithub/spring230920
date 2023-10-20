@@ -1,9 +1,7 @@
 package com.example.spring230920.dao;
 
 import com.example.spring230920.domain.*;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -75,4 +73,60 @@ VALUE (#{name}, #{country})
     VALUE (#{lastName}, #{firstName})
 """)
     int insert2(MyDto32 emp);
+
+    @Delete("""
+DELETE FROM customers
+WHERE CustomerID = #{id}
+""")
+    int delete1(Integer id);
+
+    @Delete("""
+DELETE FROM products
+WHERE ProductID = #{pid}
+""")
+    int delete2(Integer pid);
+
+    @Select("""
+SELECT EmployeeID id,
+        LastName,
+        FirstName,
+        BirthDate,
+        Photo,
+        Notes
+FROM employees
+WHERE EmployeeID = #{id}
+""")
+    MyDto33Employee select8(Integer id);
+
+    @Update("""
+UPDATE employees
+SET LastName = #{lastName},
+    FirstName = #{firstName},
+    photo = #{photo},
+    BirthDate = #{birthDate},
+    Notes = #{notes}
+WHERE EmployeeID = #{id}
+""")
+    int update1(MyDto33Employee employee);
+
+    @Select("""
+SELECT CustomerID id,
+        CustomerName,
+        Address,
+        City,
+        Country
+FROM customers
+WHERE CustomerID = #{id}
+""")
+    MyDto34Customer select9(Integer id);
+
+    @Update("""
+UPDATE customers
+SET CustomerName = #{customerName},
+    Address = #{address},
+    city = #{city},
+    Country = #{country}
+WHERE CustomerID = #{id}
+""")
+    int update2(MyDto34Customer customer);
 }

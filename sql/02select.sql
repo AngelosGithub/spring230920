@@ -7,6 +7,7 @@ SELECT * FROM customers;
 SELECT * FROM categories;
 SELECT * FROM orderdetails;
 SELECT * FROM shippers;
+SELECT * FROM employees;
 
 --
 SELECT CustomerName      -- column명 나열

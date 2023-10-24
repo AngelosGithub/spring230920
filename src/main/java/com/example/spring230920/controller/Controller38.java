@@ -21,6 +21,11 @@ public class Controller38 {
 
     private final MyDao8 dao;
 
+    @GetMapping("sub0")
+    public void method0() {
+
+    }
+
     /*
     axios.get("/main38/sub1")
      */
@@ -37,7 +42,11 @@ public class Controller38 {
     @GetMapping("sub2")
     @ResponseBody
     public String method2() {
-
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         return "hello world";
     }
 

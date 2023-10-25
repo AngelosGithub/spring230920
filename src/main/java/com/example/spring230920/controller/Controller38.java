@@ -43,7 +43,7 @@ public class Controller38 {
     @ResponseBody
     public String method2() {
         try {
-            Thread.sleep(5000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -70,7 +70,7 @@ public class Controller38 {
         //  "List": ["son", "lee", "kim"], "birth": "1999-03-03"}
         return Map.of("city", "seoul",
                 "price", 3000,
-                "List", List.of("son", "lee", "kim"),
+                "list", List.of("son", "lee", "kim"),
                 "birth", "1999-03-03");
     }
 

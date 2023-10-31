@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 public interface MyDao9 {
 
     @Insert("""
-    INSERT INTO employees (lastname, firstname, birthdate, notes) 
+    INSERT INTO employees (lastname, firstname, birthdate, notes)
     VALUES (#{firstName}, #{lastName}, #{birthDate}, #{notes})
 """)
     int insertEmployee(MyDto33Employee dto);

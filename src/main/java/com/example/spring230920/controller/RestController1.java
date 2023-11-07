@@ -1,6 +1,7 @@
 package com.example.spring230920.controller;
 
 import com.example.spring230920.dao.MyDao10;
+import com.example.spring230920.domain.MyDto34Customer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +30,12 @@ public class RestController1 {
     @ResponseBody
     public String method2() {
         return dao.customerName();
+    }
+
+    @GetMapping("sub3")
+    @ResponseBody
+    public MyDto34Customer method3() {
+        return dao.getCustomer();
     }
 
 }

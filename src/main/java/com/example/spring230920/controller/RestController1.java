@@ -15,6 +15,6 @@ public class RestController1 {
     @GetMapping("sub1")
     @ResponseBody
     public String method1() {
-        return "hello boot app!!";
+        return "hello boot world!!";
     }
 }

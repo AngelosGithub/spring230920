@@ -18,14 +18,14 @@ WHERE CustomerID = 50
     String customerName();
 
     @Select("""
-SELECT CustomerID id, customerName, country, address, city
+SELECT CustomerID id, customerName name, country, address, city
 FROM customers
 WHERE CustomerID = 40
 """)
     MyDto34Customer getCustomer();
 
     @Select("""
-SELECT CustomerID id, CustomerName, country, address, city
+SELECT CustomerID id, CustomerName name, country, address, city
 FROM customers
 WHERE CustomerID = #{id}
 """)

@@ -21,4 +21,11 @@ FROM customers
 WHERE CustomerID = 40
 """)
     MyDto34Customer getCustomer();
+
+    @Select("""
+SELECT CustomerID id, CustomerName, country, address, city
+FROM customers
+WHERE CustomerID = #{id}
+""")
+    MyDto34Customer getCustomerById(Integer id);
 }

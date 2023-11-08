@@ -5,6 +5,7 @@ import com.example.spring230920.domain.MyDto34Customer;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
 import java.util.Map;
 @Mapper
 public interface MyDao10 {
@@ -31,9 +32,16 @@ WHERE CustomerID = #{id}
     MyDto34Customer getCustomerById(Integer id);
 
     @Select("""
-SELECT LastName, FirstName
-FROM employees
-WHERE EmployeeID = #{id}
-""")
+            SELECT LastName, FirstName
+            FROM employees
+            WHERE EmployeeID = #{id}
+            """)
     MyDto33Employee getEmployeeById(Integer id);
+
+    @Select("""
+            SELECT CustomerID
+            FROM customers
+            ORDER BY CustomerID
+            """)
+    List<Integer> getCustomerIdList();
 }

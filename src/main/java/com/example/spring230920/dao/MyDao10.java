@@ -1,5 +1,6 @@
 package com.example.spring230920.dao;
 
+import com.example.spring230920.domain.MyDto33Employee;
 import com.example.spring230920.domain.MyDto34Customer;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -28,4 +29,11 @@ FROM customers
 WHERE CustomerID = #{id}
 """)
     MyDto34Customer getCustomerById(Integer id);
+
+    @Select("""
+SELECT LastName, FirstName
+FROM employees
+WHERE EmployeeID = #{id}
+""")
+    MyDto33Employee getEmployeeById(Integer id);
 }

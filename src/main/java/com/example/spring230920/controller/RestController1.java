@@ -1,6 +1,7 @@
 package com.example.spring230920.controller;
 
 import com.example.spring230920.dao.MyDao10;
+import com.example.spring230920.domain.MyDto33Employee;
 import com.example.spring230920.domain.MyDto34Customer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +49,17 @@ public class RestController1 {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(customer);
+    }
+
+    @GetMapping("sub5")
+    @ResponseBody
+    public ResponseEntity<MyDto33Employee> method5(Integer id) {
+        MyDto33Employee employee = dao.getEmployeeById(id);
+
+        if (employee == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(employee);
     }
 
 }

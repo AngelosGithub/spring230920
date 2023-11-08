@@ -44,4 +44,11 @@ WHERE CustomerID = #{id}
             ORDER BY CustomerID
             """)
     List<Integer> getCustomerIdList();
+
+    @Select("""
+            SELECT EmployeeID
+            FROM employees
+            ORDER BY EmployeeID
+            """)
+    List<Integer> getEmployeeIdList();
 }
